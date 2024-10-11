@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aelius AI - Usage Policy</title>
+    <link rel="icon" href="static/Aelius.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                margin-top: 5px;
+                display: flex;
+                width: auto;
+                height: auto;
+                visibility: visible;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        .center-content {
+            margin-bottom: 5vh;
+            margin-top: -2vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="navbar-brand">
+                <img src="static/Aelius.png" alt="Aelius AI Logo" class="navbar-logo">
+                <span style="white-space: nowrap;">Aelius AI</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-list">
+                <a href="/">Home</a>
+                <a href="/chat">Try Text AI</a>
+                <a href="/image">Try Image AI</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+    <main>
+        <div class="container" id="home">
+            <div class="center-content">
+                <p class="main-text">Aelius AI Usage Policy</p>
+                <p class="word-animation">Ensuring ethical and responsible use of our advanced AI technologies.</p>
+            </div>
+        </div>
+
+        <script>
+            // Animation for main text
+            const mainText = document.querySelector('.main-text');
+            const words = mainText.textContent.split(' ');
+            mainText.innerHTML = words.map((word, index) => 
+                `<span class="word word-${index}">${word}</span>`
+            ).join(' ');
+            const mainWordSpans = mainText.querySelectorAll('.word');
+    
+            let delay = 0;
+            mainWordSpans.forEach((wordSpan) => {
+                wordSpan.style.animation = `fadeInUp 0.5s forwards ${delay}s`;
+                delay += 0.05; // Adjust the delay between words
+            });
+    
+            // Animation for subtext (unchanged)
+            const textElements = document.querySelectorAll('.word-animation');
+            textElements.forEach((element) => {
+                const words = element.textContent.split(' ');
+                element.innerHTML = words.map((word) => `<span class="word">${word}</span>`).join(' ');
+                const wordSpans = element.querySelectorAll('.word');
+    
+                let delay = 0;
+                wordSpans.forEach((wordSpan) => {
+                    wordSpan.style.animation = `fadeIn 0.3s forwards ${delay}s`;
+                    delay += 0.035; // Adjust the delay between words
+                });
+            });
+        </script>
+
+        <div class="container content-grid">
+            <aside class="sidebar">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#general-principles" class="smooth-scroll">General Principles</a></li>
+                    <li><a href="#prohibited-uses" class="smooth-scroll">Prohibited Uses</a></li>
+                    <li><a href="#sensitive-cases" class="smooth-scroll">Sensitive Use Cases</a></li>
+                    <li><a href="#user-responsibilities" class="smooth-scroll">User Responsibilities</a></li>
+                    <li><a href="#compliance" class="smooth-scroll">Compliance and Enforcement</a></li>
+                    <li><a href="#updates" class="smooth-scroll">Updates and Communication</a></li>
+                </ul>
+            </aside>
+
+            <div class="main-content">
+                <section id="general-principles" class="section">
+                    <h2>General Principles</h2>
+                    <p>At Aelius AI, we are committed to the following core principles:</p>
+                    <p>1. Ethical Use: Our AI should be used to benefit humanity and not cause harm.</p>
+                    <p>2. Transparency: Users must be clear when AI is being used in interactions with others.</p>
+                    <p>3. Privacy: Respect for individual privacy and data protection is paramount.</p>
+                    <p>4. Fairness: AI systems should be used in a manner that promotes equality and avoids bias.</p>
+                    <p>5. Accountability: Users are responsible for the outputs and consequences of using our AI.</p>
+                </section>
+                
+                <section id="prohibited-uses" class="section">
+                    <h2>Prohibited Uses</h2>
+                    <p>The following uses of Aelius AI technologies are strictly prohibited:</p>
+                    <p>1. Illegal Activities: Any action that violates local, national, or international laws.</p>
+                    <p>2. Harm to Individuals: Creating content that threatens, harasses, or discriminates against others.</p>
+                    <p>3. Misinformation: Deliberately spreading false or misleading information.</p>
+                    <p>4. Intellectual Property Infringement: Violating copyrights, trademarks, or patents.</p>
+                    <p>5. Malicious Software: Developing or distributing malware, viruses, or other harmful code.</p>
+                    <p>6. Unauthorized Access: Attempting to breach security measures or access restricted systems.</p>
+                    <p>7. Exploitation of Minors: Any activity that harms or takes advantage of children.</p>
+                </section>
+                
+                <section id="sensitive-cases" class="section">
+                    <h2>Sensitive Use Cases</h2>
+                    <p>Certain applications of our AI require additional safeguards and considerations:</p>
+                    <p>1. Healthcare: Must involve qualified medical professionals in decision-making processes.</p>
+                    <p>2. Financial Services: Requires compliance with relevant financial regulations.</p>
+                    <p>3. Legal Applications: Should be used as a tool to assist, not replace, legal professionals.</p>
+                    <p>4. Education: Must not be used for cheating or academic dishonesty.</p>
+                    <p>5. Government Services: Requires transparency about AI use and human oversight.</p>
+                    <p>Users engaging in these sensitive areas must ensure proper protocols and expert involvement.</p>
+                </section>
+                
+                <section id="user-responsibilities" class="section">
+                    <h2>User Responsibilities</h2>
+                    <p>Users of Aelius AI technologies are expected to:</p>
+                    <p>1. Verify Outputs: Cross-check AI-generated information, especially for critical applications.</p>
+                    <p>2. Maintain Security: Safeguard access to AI systems and protect any sensitive data processed.</p>
+                    <p>3. Report Issues: Promptly report any bugs, safety concerns, or observed misuse to our team.</p>
+                    <p>4. Stay Informed: Keep up-to-date with policy changes and best practices for AI use.</p>
+                    <p>5. Ethical Consideration: Reflect on the ethical implications of their AI applications.</p>
+                </section>
+                
+                <section id="compliance" class="section">
+                    <h2>Compliance and Enforcement</h2>
+                    <p>To ensure adherence to this policy:</p>
+                    <p>1. Monitoring: We may review usage patterns to ensure compliance.</p>
+                    <p>2. Investigations: Users must cooperate with any inquiry into potential policy violations.</p>
+                    <p>3. Consequences: Violations may result in temporary or permanent suspension of services.</p>
+                    <p>4. Reporting: We encourage users to report any observed policy violations.</p>
+                    <p>5. Updates: This policy may be updated to address new challenges or technologies.</p>
+                </section>
+                
+                <section id="updates" class="section">
+                    <h2>Updates and Communication</h2>
+                    <p>We are committed to keeping our users informed about policy changes:</p>
+                    <p>1. Notification: Users will be notified of significant policy updates via email or in-app notifications.</p>
+                    <p>2. Review Period: Major changes will have a review period before taking effect.</p>
+                    <p>3. Feedback: We welcome user feedback on policy updates and implementation.</p>
+                    <p>4. Version History: A record of policy changes will be maintained and accessible to users.</p>
+                    <p>5. Clarifications: Users can reach out to our support team for any policy clarifications.</p>
+                </section>
+
+                <a href="/contact" class="cta-button">Contact Us for More Information</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h2>Aelius AI</h2>
+                    <p>Empowering the future with cutting-edge artificial intelligence solutions. We're committed to innovation, ethics, and transformative technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#about">Our Mission</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/chat">Text AI</a></li>
+                        <li><a href="/image">Image AI</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/integrate">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/usage">Usage Policy</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/ethics">Ethical AI Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Aelius AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.smooth-scroll');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offset = 80; // Offset in pixels
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-list').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image AI Generator</title>
+    <link rel="icon" href="static/Aelius.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+  body {
+      font-family: 'Onest', sans-serif;
+      background-color: #1a1a1a;
+      color: #ecf0f1;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+.container {
+  position: relative;
+  height: 100px;
+  width: 86px;
+  transform: scale(0.5);
+}
+
+.cube {
+  position: absolute;
+  width: 86px;
+  height: 100px;
+}
+
+.right {
+  background: #E79C10;
+  transform: rotate(-30deg) skewX(-30deg) translate(49px, 65px) scaleY(0.86);
+}
+
+.left {
+  background: #D53A33;
+  transform: rotate(90deg) skewX(-30deg) scaleY(0.86) translate(25px, -50px);
+}
+
+.top {
+  background: #1d9099;
+  transform: rotate(210deg) skew(-30deg) translate(-75px, -22px) scaleY(0.86);
+  z-index: 2;
+}
+
+.face {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  transform-origin: 0 0;
+}
+
+.h1.w1.l1 {
+  z-index: -1;
+  animation-name: h1w1l1;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h1w1l1 {
+  0% {
+    transform: translate(0%, -100%);
+  }
+  14% {
+    transform: translate(-50%, -125%);
+  }
+  28% {
+    transform: translate(0%, -150%);
+  }
+  43% {
+    transform: translate(0%, -200%);
+  }
+  57% {
+    transform: translate(50%, -175%);
+  }
+  71% {
+    transform: translate(0%, -150%);
+  }
+  85% {
+    transform: translate(0%, -100%);
+  }
+  100% {
+    transform: translate(0%, -100%);
+  }
+}
+.h1.w1.l2 {
+  z-index: -1;
+  animation-name: h1w1l2;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h1w1l2 {
+  0% {
+    transform: translate(50%, -75%);
+  }
+  14% {
+    transform: translate(50%, -75%);
+  }
+  28% {
+    transform: translate(100%, -100%);
+  }
+  43% {
+    transform: translate(100%, -150%);
+  }
+  57% {
+    transform: translate(100%, -150%);
+  }
+  71% {
+    transform: translate(50%, -125%);
+  }
+  85% {
+    transform: translate(50%, -75%);
+  }
+  100% {
+    transform: translate(50%, -75%);
+  }
+}
+.h1.w1.l3 {
+  z-index: -1;
+  animation-name: h1w1l3;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h1w1l3 {
+  0% {
+    transform: translate(100%, -50%);
+  }
+  14% {
+    transform: translate(150%, -25%);
+  }
+  28% {
+    transform: translate(200%, -50%);
+  }
+  43% {
+    transform: translate(200%, -100%);
+  }
+  57% {
+    transform: translate(150%, -125%);
+  }
+  71% {
+    transform: translate(100%, -100%);
+  }
+  85% {
+    transform: translate(100%, -50%);
+  }
+  100% {
+    transform: translate(100%, -50%);
+  }
+}
+.h1.w2.l1 {
+  z-index: -1;
+  animation-name: h1w2l1;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h1w2l1 {
+  0% {
+    transform: translate(-50%, -75%);
+  }
+  14% {
+    transform: translate(-100%, -100%);
+  }
+  28% {
+    transform: translate(-100%, -100%);
+  }
+  43% {
+    transform: translate(-100%, -150%);
+  }
+  57% {
+    transform: translate(-50%, -125%);
+  }
+  71% {
+    transform: translate(-50%, -125%);
+  }
+  85% {
+    transform: translate(-50%, -75%);
+  }
+  100% {
+    transform: translate(-50%, -75%);
+  }
+}
+.h1.w2.l2 {
+  z-index: -1;
+  animation-name: h1w2l2;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h1w2l2 {
+  0% {
+    transform: translate(0%, -50%);
+  }
+  14% {
+    transform: translate(0%, -50%);
+  }
+  28% {
+    transform: translate(0%, -50%);
+  }
+  43% {
+    transform: translate(0%, -100%);
+  }
+  57% {
+    transform: translate(0%, -100%);
+  }
+  71% {
+    transform: translate(0%, -100%);
+  }
+  85% {
+    transform: translate(0%, -50%);
+  }
+  100% {
+    transform: translate(0%, -50%);
+  }
+}
+.h1.w2.l3 {
+  z-index: -1;
+  animation-name: h1w2l3;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h1w2l3 {
+  0% {
+    transform: translate(50%, -25%);
+  }
+  14% {
+    transform: translate(100%, 0%);
+  }
+  28% {
+    transform: translate(100%, 0%);
+  }
+  43% {
+    transform: translate(100%, -50%);
+  }
+  57% {
+    transform: translate(50%, -75%);
+  }
+  71% {
+    transform: translate(50%, -75%);
+  }
+  85% {
+    transform: translate(50%, -25%);
+  }
+  100% {
+    transform: translate(50%, -25%);
+  }
+}
+.h1.w3.l1 {
+  z-index: -1;
+  animation-name: h1w3l1;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h1w3l1 {
+  0% {
+    transform: translate(-100%, -50%);
+  }
+  14% {
+    transform: translate(-150%, -75%);
+  }
+  28% {
+    transform: translate(-200%, -50%);
+  }
+  43% {
+    transform: translate(-200%, -100%);
+  }
+  57% {
+    transform: translate(-150%, -75%);
+  }
+  71% {
+    transform: translate(-100%, -100%);
+  }
+  85% {
+    transform: translate(-100%, -50%);
+  }
+  100% {
+    transform: translate(-100%, -50%);
+  }
+}
+.h1.w3.l2 {
+  z-index: -1;
+  animation-name: h1w3l2;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h1w3l2 {
+  0% {
+    transform: translate(-50%, -25%);
+  }
+  14% {
+    transform: translate(-50%, -25%);
+  }
+  28% {
+    transform: translate(-100%, 0%);
+  }
+  43% {
+    transform: translate(-100%, -50%);
+  }
+  57% {
+    transform: translate(-100%, -50%);
+  }
+  71% {
+    transform: translate(-50%, -75%);
+  }
+  85% {
+    transform: translate(-50%, -25%);
+  }
+  100% {
+    transform: translate(-50%, -25%);
+  }
+}
+.h1.w3.l3 {
+  z-index: -1;
+  animation-name: h1w3l3;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h1w3l3 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  14% {
+    transform: translate(50%, 25%);
+  }
+  28% {
+    transform: translate(0%, 50%);
+  }
+  43% {
+    transform: translate(0%, 0%);
+  }
+  57% {
+    transform: translate(-50%, -25%);
+  }
+  71% {
+    transform: translate(0%, -50%);
+  }
+  85% {
+    transform: translate(0%, 0%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+.h2.w1.l1 {
+  z-index: -2;
+  animation-name: h2w1l1;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h2w1l1 {
+  0% {
+    transform: translate(0%, -50%);
+  }
+  14% {
+    transform: translate(-50%, -75%);
+  }
+  28% {
+    transform: translate(0%, -100%);
+  }
+  43% {
+    transform: translate(0%, -100%);
+  }
+  57% {
+    transform: translate(50%, -75%);
+  }
+  71% {
+    transform: translate(0%, -50%);
+  }
+  85% {
+    transform: translate(0%, -50%);
+  }
+  100% {
+    transform: translate(0%, -50%);
+  }
+}
+.h2.w1.l2 {
+  z-index: -2;
+  animation-name: h2w1l2;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h2w1l2 {
+  0% {
+    transform: translate(50%, -25%);
+  }
+  14% {
+    transform: translate(50%, -25%);
+  }
+  28% {
+    transform: translate(100%, -50%);
+  }
+  43% {
+    transform: translate(100%, -50%);
+  }
+  57% {
+    transform: translate(100%, -50%);
+  }
+  71% {
+    transform: translate(50%, -25%);
+  }
+  85% {
+    transform: translate(50%, -25%);
+  }
+  100% {
+    transform: translate(50%, -25%);
+  }
+}
+.h2.w1.l3 {
+  z-index: -2;
+  animation-name: h2w1l3;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h2w1l3 {
+  0% {
+    transform: translate(100%, 0%);
+  }
+  14% {
+    transform: translate(150%, 25%);
+  }
+  28% {
+    transform: translate(200%, 0%);
+  }
+  43% {
+    transform: translate(200%, 0%);
+  }
+  57% {
+    transform: translate(150%, -25%);
+  }
+  71% {
+    transform: translate(100%, 0%);
+  }
+  85% {
+    transform: translate(100%, 0%);
+  }
+  100% {
+    transform: translate(100%, 0%);
+  }
+}
+.h2.w2.l1 {
+  z-index: -2;
+  animation-name: h2w2l1;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h2w2l1 {
+  0% {
+    transform: translate(-50%, -25%);
+  }
+  14% {
+    transform: translate(-100%, -50%);
+  }
+  28% {
+    transform: translate(-100%, -50%);
+  }
+  43% {
+    transform: translate(-100%, -50%);
+  }
+  57% {
+    transform: translate(-50%, -25%);
+  }
+  71% {
+    transform: translate(-50%, -25%);
+  }
+  85% {
+    transform: translate(-50%, -25%);
+  }
+  100% {
+    transform: translate(-50%, -25%);
+  }
+}
+.h2.w2.l2 {
+  z-index: -2;
+  animation-name: h2w2l2;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h2w2l2 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  14% {
+    transform: translate(0%, 0%);
+  }
+  28% {
+    transform: translate(0%, 0%);
+  }
+  43% {
+    transform: translate(0%, 0%);
+  }
+  57% {
+    transform: translate(0%, 0%);
+  }
+  71% {
+    transform: translate(0%, 0%);
+  }
+  85% {
+    transform: translate(0%, 0%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+.h2.w2.l3 {
+  z-index: -2;
+  animation-name: h2w2l3;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h2w2l3 {
+  0% {
+    transform: translate(50%, 25%);
+  }
+  14% {
+    transform: translate(100%, 50%);
+  }
+  28% {
+    transform: translate(100%, 50%);
+  }
+  43% {
+    transform: translate(100%, 50%);
+  }
+  57% {
+    transform: translate(50%, 25%);
+  }
+  71% {
+    transform: translate(50%, 25%);
+  }
+  85% {
+    transform: translate(50%, 25%);
+  }
+  100% {
+    transform: translate(50%, 25%);
+  }
+}
+.h2.w3.l1 {
+  z-index: -2;
+  animation-name: h2w3l1;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h2w3l1 {
+  0% {
+    transform: translate(-100%, 0%);
+  }
+  14% {
+    transform: translate(-150%, -25%);
+  }
+  28% {
+    transform: translate(-200%, 0%);
+  }
+  43% {
+    transform: translate(-200%, 0%);
+  }
+  57% {
+    transform: translate(-150%, 25%);
+  }
+  71% {
+    transform: translate(-100%, 0%);
+  }
+  85% {
+    transform: translate(-100%, 0%);
+  }
+  100% {
+    transform: translate(-100%, 0%);
+  }
+}
+.h2.w3.l2 {
+  z-index: -2;
+  animation-name: h2w3l2;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h2w3l2 {
+  0% {
+    transform: translate(-50%, 25%);
+  }
+  14% {
+    transform: translate(-50%, 25%);
+  }
+  28% {
+    transform: translate(-100%, 50%);
+  }
+  43% {
+    transform: translate(-100%, 50%);
+  }
+  57% {
+    transform: translate(-100%, 50%);
+  }
+  71% {
+    transform: translate(-50%, 25%);
+  }
+  85% {
+    transform: translate(-50%, 25%);
+  }
+  100% {
+    transform: translate(-50%, 25%);
+  }
+}
+.h2.w3.l3 {
+  z-index: -2;
+  animation-name: h2w3l3;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h2w3l3 {
+  0% {
+    transform: translate(0%, 50%);
+  }
+  14% {
+    transform: translate(50%, 75%);
+  }
+  28% {
+    transform: translate(0%, 100%);
+  }
+  43% {
+    transform: translate(0%, 100%);
+  }
+  57% {
+    transform: translate(-50%, 75%);
+  }
+  71% {
+    transform: translate(0%, 50%);
+  }
+  85% {
+    transform: translate(0%, 50%);
+  }
+  100% {
+    transform: translate(0%, 50%);
+  }
+}
+.h3.w1.l1 {
+  z-index: -3;
+  animation-name: h3w1l1;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h3w1l1 {
+  0% {
+    transform: translate(0%, 0%);
+  }
+  14% {
+    transform: translate(-50%, -25%);
+  }
+  28% {
+    transform: translate(0%, -50%);
+  }
+  43% {
+    transform: translate(0%, 0%);
+  }
+  57% {
+    transform: translate(50%, 25%);
+  }
+  71% {
+    transform: translate(0%, 50%);
+  }
+  85% {
+    transform: translate(0%, 0%);
+  }
+  100% {
+    transform: translate(0%, 0%);
+  }
+}
+.h3.w1.l2 {
+  z-index: -3;
+  animation-name: h3w1l2;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h3w1l2 {
+  0% {
+    transform: translate(50%, 25%);
+  }
+  14% {
+    transform: translate(50%, 25%);
+  }
+  28% {
+    transform: translate(100%, 0%);
+  }
+  43% {
+    transform: translate(100%, 50%);
+  }
+  57% {
+    transform: translate(100%, 50%);
+  }
+  71% {
+    transform: translate(50%, 75%);
+  }
+  85% {
+    transform: translate(50%, 25%);
+  }
+  100% {
+    transform: translate(50%, 25%);
+  }
+}
+.h3.w1.l3 {
+  z-index: -3;
+  animation-name: h3w1l3;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h3w1l3 {
+  0% {
+    transform: translate(100%, 50%);
+  }
+  14% {
+    transform: translate(150%, 75%);
+  }
+  28% {
+    transform: translate(200%, 50%);
+  }
+  43% {
+    transform: translate(200%, 100%);
+  }
+  57% {
+    transform: translate(150%, 75%);
+  }
+  71% {
+    transform: translate(100%, 100%);
+  }
+  85% {
+    transform: translate(100%, 50%);
+  }
+  100% {
+    transform: translate(100%, 50%);
+  }
+}
+.h3.w2.l1 {
+  z-index: -3;
+  animation-name: h3w2l1;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h3w2l1 {
+  0% {
+    transform: translate(-50%, 25%);
+  }
+  14% {
+    transform: translate(-100%, 0%);
+  }
+  28% {
+    transform: translate(-100%, 0%);
+  }
+  43% {
+    transform: translate(-100%, 50%);
+  }
+  57% {
+    transform: translate(-50%, 75%);
+  }
+  71% {
+    transform: translate(-50%, 75%);
+  }
+  85% {
+    transform: translate(-50%, 25%);
+  }
+  100% {
+    transform: translate(-50%, 25%);
+  }
+}
+.h3.w2.l2 {
+  z-index: -3;
+  animation-name: h3w2l2;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h3w2l2 {
+  0% {
+    transform: translate(0%, 50%);
+  }
+  14% {
+    transform: translate(0%, 50%);
+  }
+  28% {
+    transform: translate(0%, 50%);
+  }
+  43% {
+    transform: translate(0%, 100%);
+  }
+  57% {
+    transform: translate(0%, 100%);
+  }
+  71% {
+    transform: translate(0%, 100%);
+  }
+  85% {
+    transform: translate(0%, 50%);
+  }
+  100% {
+    transform: translate(0%, 50%);
+  }
+}
+.h3.w2.l3 {
+  z-index: -3;
+  animation-name: h3w2l3;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h3w2l3 {
+  0% {
+    transform: translate(50%, 75%);
+  }
+  14% {
+    transform: translate(100%, 100%);
+  }
+  28% {
+    transform: translate(100%, 100%);
+  }
+  43% {
+    transform: translate(100%, 150%);
+  }
+  57% {
+    transform: translate(50%, 125%);
+  }
+  71% {
+    transform: translate(50%, 125%);
+  }
+  85% {
+    transform: translate(50%, 75%);
+  }
+  100% {
+    transform: translate(50%, 75%);
+  }
+}
+.h3.w3.l1 {
+  z-index: -3;
+  animation-name: h3w3l1;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h3w3l1 {
+  0% {
+    transform: translate(-100%, 50%);
+  }
+  14% {
+    transform: translate(-150%, 25%);
+  }
+  28% {
+    transform: translate(-200%, 50%);
+  }
+  43% {
+    transform: translate(-200%, 100%);
+  }
+  57% {
+    transform: translate(-150%, 125%);
+  }
+  71% {
+    transform: translate(-100%, 100%);
+  }
+  85% {
+    transform: translate(-100%, 50%);
+  }
+  100% {
+    transform: translate(-100%, 50%);
+  }
+}
+.h3.w3.l2 {
+  z-index: -3;
+  animation-name: h3w3l2;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h3w3l2 {
+  0% {
+    transform: translate(-50%, 75%);
+  }
+  14% {
+    transform: translate(-50%, 75%);
+  }
+  28% {
+    transform: translate(-100%, 100%);
+  }
+  43% {
+    transform: translate(-100%, 150%);
+  }
+  57% {
+    transform: translate(-100%, 150%);
+  }
+  71% {
+    transform: translate(-50%, 125%);
+  }
+  85% {
+    transform: translate(-50%, 75%);
+  }
+  100% {
+    transform: translate(-50%, 75%);
+  }
+}
+.h3.w3.l3 {
+  z-index: -3;
+  animation-name: h3w3l3;
+  animation-timing-function: ease;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes h3w3l3 {
+  0% {
+    transform: translate(0%, 100%);
+  }
+  14% {
+    transform: translate(50%, 125%);
+  }
+  28% {
+    transform: translate(0%, 150%);
+  }
+  43% {
+    transform: translate(0%, 200%);
+  }
+  57% {
+    transform: translate(-50%, 175%);
+  }
+  71% {
+    transform: translate(0%, 150%);
+  }
+  85% {
+    transform: translate(0%, 100%);
+  }
+  100% {
+    transform: translate(0%, 100%);
+  }
+}
+
+  h1 {
+      color: #3498db;
+      margin: 20px 0;
+  }
+
+  form {
+      display: flex;
+      width: 100%;
+      max-width: 600px;
+  }
+
+  input[type="text"] {
+      flex-grow: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      margin-right: 10px;
+      font-size: 16px;
+      outline: none;
+      color: #ecf0f1;
+      background-color: #34495e;
+  }
+
+  button {
+      padding: 10px 20px;
+      background-color: #3498db;
+      border: none;
+      border-radius: 20px;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+
+  button:hover {
+      background-color: #2980b9;
+  }
+
+  #imageResult img {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 10px;
+  }
+
+  #loadingAnimation {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+  }
+
+  .loader {
+      border: 5px solid #f3f3f3; /* Light grey */
+      border-top: 5px solid #3498db; /* Blue */
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+  }
+
+.word-animation {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(0%, -50%);
+    margin: 0;
+}
+
+.word {
+    display: inline-block; /* Allows the use of transform for positioning */
+    font-family: 'Onest', sans-serif;
+    color: #ffffff;
+    font-size: 4em;
+    font-weight: bold;
+    opacity: 0;
+    animation: fadeInDown 2s forwards;
+    text-shadow: 
+        2px 2px 4px rgba(0, 0, 0, 0.8),
+        -2px -2px 4px rgba(255, 255, 255, 0.2);
+    padding: 0.25em 0.5em;
+    border-radius: 10px;
+}
+
+@keyframes fadeInDown {
+    0% {
+        transform: translate(-50%, -150%); /* Start above */
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%); /* End in place */
+        opacity: 1;
+    }
+}
+
+#imageResult {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#imageResult img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.download-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #2980b9;
+}
+
+.action-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    margin-top: 10px; /* Provide spacing between buttons */
+    margin-right: 10px; /* Space between buttons */
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-block; /* Ensure buttons are in line */
+}
+
+.action-button:hover {
+    background-color: #2980b9;
+}
+
+/* You might want to disable hover effects for the informational button */
+#finishedButton:hover {
+    background-color: #3498db; /* Keep the color unchanged */
+}
+
+#promptForm, #optionsBar {
+    text-align: center;
+    width: 100%; /* Match the width of the input bar and button */
+    max-width: 600px; /* Adjust based on your form's max-width */
+    margin: auto;
+}
+
+#optionsButton {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    margin: 0;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#optionsContent {
+    background-color: #e8e8e8;
+    color: #333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+#arrow {
+    display: inline-block;
+    transition: transform 0.3s ease; /* Ensure animation */
+}
+
+.arrow-down {
+    transform: rotate(0deg); /* Arrow points down */
+}
+
+.arrow-up {
+    transform: rotate(180deg); /* Arrow points up */
+}
+
+/* Container for resolution switch */
+.resolution-switch {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Styles for the resolution buttons */
+.resolutionButton {
+    flex: 1; /* Each button will take up equal space */
+    font-size: 1em;
+    margin: 0 5px; /* Adjust spacing between buttons */
+    transition: background-color 0.3s, transform 0.3s;
+    /* Other styles... */
+}
+
+/* Active state when the button is selected */
+.resolutionButton.active {
+    background-color: #27ae60;
+    transform: scale(1.1); /* Slightly scale up the active button */
+}
+
+
+/* Slider custom styles */
+input[type="range"] {
+    -webkit-appearance: none; /* Override default appearance */
+    width: 100%; /* Full width to maximize space */
+    height: 15px; /* Increased height for better interaction */
+    background: #3498db; /* Match the button color for consistency */
+    cursor: pointer; /* Indicate that the slider is movable */
+    border-radius: 10px; /* Rounded corners */
+    outline: none;
+    transition: background 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Styles for the slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 30px; /* Increased thumb width for better visibility and interaction */
+    height: 30px; /* Increased thumb height for better visibility and interaction */
+    background: #ffffff; /* Thumb is white */
+    cursor: pointer; /* Cursor indicates the thumb is draggable */
+    border: 2px solid #3498db; /* Border matches the slider track */
+    border-radius: 50%; /* Circular thumb */
+    box-shadow: 0px 0px 10px #aaa; /* Soft shadow for depth */
+    transition: transform 0.2s ease; /* Animation on press */
+}
+
+/* Scale up the thumb when it's being moved (dragging) */
+input[type="range"]:active::-webkit-slider-thumb {
+    transform: scale(1.1);
+}
+
+/* Styles for the slider track (compatibility with other browsers) */
+input[type="range"]::-moz-range-track {
+    background: #3498db;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+input[type="range"]::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    border-radius: 50%;
+}
+
+input[type="range"]::-ms-thumb {
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    cursor: pointer;
+    border: 2px solid #3498db;
+    border-radius: 50%;
+}
+
+label {
+    font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+    .resolutionButton {
+        padding: 12px 24px;
+        font-size: 1em;
+    }
+    label {
+        font-size: 1em;
+    }
+}
+
+.navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .navbar a {
+            font-size: 24px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar div {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar div a {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .navbar-logo {
+            height: 50px;
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            text-align: left;
+            width: 100%;
+            justify-content: end;
+            overflow: hidden;
+            max-height: 300px;
+            transition: none;
+            font-size: 20px;
+        }
+        
+        .nav-list.active {
+            max-height: 300px;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            visibility: hidden;
+            cursor: pointer;
+            width: 0;
+            height: 0;
+            margin-right: 10px;
+        }
+
+        h4 {
+            margin-left: 40px;
+        }
+
+
+        .bar {
+            background-color: #3498db;
+            height: 3px;
+            width: 25px;
+            margin: 3px;
+            border-radius: 2px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #ecf0f1;
+            font-size: 3em;
+            margin: 0 0px;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-list {
+                max-height: 0;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #34495e;
+                flex-direction: column;
+            }
+
+            .navbar a {
+                text-decoration: none;
+                color: #ecf0f1;
+                font-size: 2em;
+                margin: 0 0px;
+                transition: color 0.3s;
+                font-weight: 600;
+            }
+
+            .nav-list a {
+                text-align: left;
+                display: block;
+                width: 100%;
+                padding: 10px;
+                border-bottom: 1px solid #3498db;
+                color: white;
+                text-decoration: none;
+                transition: background-color 0.3s;
+            }
+
+
+            .nav-list a:last-child {
+                border-bottom: none;
+            }
+
+            .nav-list a:hover {
+                background-color: #2c3e50;
+            }
+
+            .nav-list.active {
+                max-height: 300px;
+                padding: 0px 10px;
+                border-top: 2px solid #3498db;
+                border-bottom: 2px solid #3498db;
+            }
+
+            .menu-toggle {
+                display: flex;
+                width: auto;
+                height: auto;
+                visibility: visible;
+            }
+        }
+
+input[type="range"]:hover::-webkit-slider-thumb,
+input[type="range"]:focus::-webkit-slider-thumb {
+    box-shadow: 0px 0px 15px #666;
+}
+</style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="/" class="navbar-brand">
+        <img src="static/Aelius.png" alt="Aelius AI Logo" class="navbar-logo">Aelius AI
+    </a>
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+    <div class="nav-list">
+        <a href="/">Back to Home</a>
+        <a href="/chat">Try Text AI</a>
+    </div>
+</div>    
+
+<script>
+    const mobileMenuButton = document.getElementById('mobile-menu');
+    const navList = document.querySelector('.nav-list');
+
+    mobileMenuButton.addEventListener('click', function() {
+        navList.classList.toggle('active');
+    });
+
+    window.addEventListener('resize', function() {
+        navList.classList.remove('active');
+    });
+
+
+</script>
+  
+    <div style="text-align: center; font-size: 1em;">
+    <h1>Image Generator</h1>
+    </div>
+    <form id="promptForm">
+        <input type="text" id="promptInput" placeholder="Enter your prompt here" required>
+        <button type="submit">Generate</button>
+    </form>
+    <div id="optionsBar" style="text-align: center; margin-top: 10px;">
+      <button id="optionsButton">Options <span id="arrow">&#9660;</span></button>
+      <div id="optionsContent" style="display: none; margin-top: 5px;">
+        <p>Options still in development. Please bear with us during this improvement phase. Your understanding and patience are greatly appreciated.</p>
+      </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Initialize arrow direction
+    $('#arrow').addClass('arrow-up'); // Arrow points up initially
+
+    $('#optionsButton').click(function(event) {
+        // Toggle the dropdown content
+        $('#optionsContent').slideToggle('fast', function() {
+            // Check if the optionsContent is visible and adjust the arrow accordingly
+            if ($('#optionsContent').is(':visible')) {
+                $('#arrow').removeClass('arrow-up').addClass('arrow-down');
+            } else {
+                $('#arrow').removeClass('arrow-down').addClass('arrow-up');
+            }
+        });
+
+        event.stopPropagation(); // Stop the click event from propagating
+    });
+
+    $('.resolutionButton').click(function(event) {
+        $('.resolutionButton').removeClass('active');
+        $(this).addClass('active');
+        console.log("Selected resolution: " + $(this).data('value'));
+        // Handle resolution change logic here
+        event.stopPropagation(); // Prevent the click event from closing the optionsContent
+    });
+
+    $('#imageSlider').on('input', function() {
+        $('#imageCount').text($(this).val());
+        // You can add logic here to handle the number of images to generate
+    });
+
+    // Prevent clicks inside the optionsContent from closing it
+    $('#optionsContent').click(function(event) {
+        event.stopPropagation();
+    });
+
+    // Close the optionsContent when clicking outside of it
+    $(document).click(function() {
+        $('#optionsContent').slideUp('fast', function() {
+            // Adjust the arrow to point up when closing
+            $('#arrow').removeClass('arrow-down').addClass('arrow-up');
+        });
+    });
+
+    // Additional jQuery-based logic for your form submission or other interactions
+    $('#promptForm').submit(function(e) {
+        e.preventDefault();
+        // Close the mobile keyboard by blurring the active element
+        document.activeElement.blur();
+        const prompt = $('#promptInput').val();
+        generateImage(prompt);
+    });
+
+    // Example image generation function (placeholder)
+    function generateImage(prompt) {
+        console.log("Generating image for prompt:", prompt);
+        // Implement your image generation logic here
+    }
+});
+</script>
+
+
+
+    <div id="cubeLoader" style="display: none; margin-top: 100px;"> <!-- Ensure visibility is controlled via JS -->
+        <div class="container">
+
+            <div class="h1Container">
+          
+              <div class="cube h1 w1 l1">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h1 w1 l2">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h1 w1 l3">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h1 w2 l1">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h1 w2 l2">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h1 w2 l3">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h1 w3 l1">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h1 w3 l2">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h1 w3 l3">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+            </div>
+            
+            <div class="h2Container">
+          
+              <div class="cube h2 w1 l1">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h2 w1 l2">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h2 w1 l3">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h2 w2 l1">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h2 w2 l2">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h2 w2 l3">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h2 w3 l1">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h2 w3 l2">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h2 w3 l3">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+            </div>
+            
+            <div class="h3Container">
+          
+              <div class="cube h3 w1 l1">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h3 w1 l2">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h3 w1 l3">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h3 w2 l1">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h3 w2 l2">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h3 w2 l3">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h3 w3 l1">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h3 w3 l2">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+          
+              <div class="cube h3 w3 l3">
+                <div class="face top"></div>
+                <div class="face left"></div>
+                <div class="face right"></div>
+              </div>
+            </div>
+            <div class="word-animation" style="margin-top: 20vh;">
+                <span class="word">Working on your request...</span>
+              </div>
+          </div>
+    </div>
+      
+    <div id="imageResult"></div>
+
+    <script>
+$(document).ready(function() {
+    var lastPrompt = ''; // Variable to hold the last used prompt
+
+    $('#promptForm').submit(function(e) {
+        e.preventDefault();
+        generateImage($('#promptInput').val()); // Generate image with current prompt
+    });
+
+    // Function to handle image generation
+    function generateImage(prompt) {
+        // Close the mobile keyboard by blurring the active element
+        if (document.activeElement) {
+            document.activeElement.blur();
+        }
+
+        // Show the loading animation
+        $('#cubeLoader').show();
+        // Remove any existing buttons or images
+        $('#imageResult').empty();
+        $('#buttonContainer').remove();
+
+        // Capture the start time for the request
+        const startTime = Date.now();
+        lastPrompt = prompt; // Store the last used prompt
+
+        $.ajax({
+            url: '/api/v1/image',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ prompt: prompt }),
+            xhrFields: {
+                responseType: 'blob'
+            },
+            success: function(blob) {
+                // Hide the loading animation
+                $('#cubeLoader').hide();
+
+                // Calculate the elapsed time
+                const elapsedTime = ((Date.now() - startTime) / 1000).toFixed(2);
+
+                // Create a URL for the blob
+                const imageUrl = URL.createObjectURL(blob);
+                // Append the image to the #imageResult container
+                $('#imageResult').append(`<img src="${imageUrl}" alt="Generated Image"/>`);
+
+                // Create a container for the buttons
+                const buttonContainer = $('<div/>', {
+                    id: 'buttonContainer'
+                }).appendTo('#imageResult');
+
+                // Append the download button to the button container
+                $('<button/>', {
+                    text: 'Download',
+                    id: 'downloadButton',
+                    class: 'action-button',
+                    click: function() {
+                        const a = document.createElement('a');
+                        a.href = imageUrl;
+                        a.download = 'image.png'; // The default filename for the download
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                    }
+                }).appendTo(buttonContainer);
+
+                // Append the Regenerate button to the button container
+                $('<button/>', {
+                    text: 'Regenerate',
+                    id: 'regenerateButton',
+                    class: 'action-button',
+                    click: function() {
+                        generateImage(lastPrompt); // Regenerate the image with the last used prompt
+                    }
+                }).appendTo(buttonContainer);
+
+                // Append the finished time button to the button container
+                $('<button/>', {
+                    text: `Finished in ${elapsedTime}s`,
+                    id: 'finishedButton',
+                    class: 'action-button',
+                    disabled: true // This button is informational only, not clickable
+                }).appendTo(buttonContainer);
+
+                // Append the resolution info button to the button container
+                $('<button/>', {
+                    text: '(1) 512x512',
+                    id: 'resolutionInfoButton',
+                    class: 'action-button',
+                    disabled: true // This button can be informational only, not clickable
+                }).appendTo(buttonContainer);
+            },
+            error: function() {
+                // Hide the loading animation
+                $('#cubeLoader').hide();
+                // Alert the user that the image generation failed
+                alert('Failed to generate image. Please try again.');
+            }
+        });
+    }
+});
+
+    </script>
+</body>
+</html>

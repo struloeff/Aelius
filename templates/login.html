@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aelius AI - Login</title>
+    <link rel="icon" href="static/Aelius.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Onest', sans-serif;
+        }
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        }
+        ::selection {
+            color: #fff;
+            background: #3498db;
+        }
+        .wrapper {
+            width: 380px;
+            padding: 40px 30px 50px 30px;
+            background: transparent;
+            border-radius: 5px;
+            text-align: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #4a4a4a;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .wrapper header {
+            font-size: 35px;
+            font-weight: 600;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+            margin-bottom: 4vh;
+        }
+        .wrapper form {
+            width: 100%;
+        }
+        form .field {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        form .field .input-area {
+            height: 50px;
+            width: 100%;
+            position: relative;
+        }
+        form input {
+            width: 100%;
+            height: 100%;
+            outline: none;
+            padding: 0 45px;
+            font-size: 18px;
+            background: none;
+            caret-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            transition: all 0.2s ease;
+            color: #fff;
+        }
+        form input:focus {
+            border-color: #3498db;
+        }
+        .field .input-area i {
+            position: absolute;
+            top: 50%;
+            font-size: 18px;
+            pointer-events: none;
+            transform: translateY(-50%);
+        }
+        .input-area .icon {
+            left: 15px;
+            color: #fff;
+            transition: color 0.2s ease;
+        }
+        form input:focus ~ .icon {
+            color: #3498db;
+        }
+        form input::placeholder {
+            color: #fff;
+            font-size: 17px;
+        }
+        .wrapper a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .wrapper a:hover {
+            text-decoration: underline;
+        }
+        form .submit-button {
+            height: 50px;
+            margin-top: 10px;
+            color: #fff;
+            padding: 0;
+            border: none;
+            background: #3498db;
+            cursor: pointer;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            font-size: 18px;
+            font-weight: 500;
+            border-radius: 5px;
+            width: 100%;
+        }
+        form .submit-button:hover {
+            background: #2980b9;
+        }
+        .header-logo {
+            margin-right: 10px;
+            height: 50px;
+            width: 50px;
+        }
+        .alert {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 100%;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .headline {
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 3vh;
+            font-weight: bold;
+        }
+
+        .mt-4 {
+            text-align: left;
+            color: #fff;
+        }
+
+        .wrapper a, .mt-4 a, header a {
+        color: #3498db;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .wrapper a:hover, .mt-4 a:hover, header a:hover {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .alert {
+            border: 1px solid #4a4a4a;
+            padding: 12px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+            color: white;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border-left: 5px solid #28a745;
+        }
+
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left: 5px solid #dc3545;
+        }
+
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border-left: 5px solid #ffc107;
+        }
+
+        .alert-info {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            border-left: 5px solid #17a2b8;
+        }
+
+        .alert::before {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            margin-right: 10px;
+        }
+
+        .alert-success::before {
+            content: "\f058";
+            color: #28a745;
+        }
+
+        .alert-danger::before {
+            content: "\f057";
+            color: #dc3545;
+        }
+
+        .alert-warning::before {
+            content: "\f06a";
+            color: #ffc107;
+        }
+
+        .alert-info::before {
+            content: "\f05a";
+            color: #17a2b8;
+        }
+
+        .alert-dismissible {
+            padding-right: 40px;
+        }
+
+        .alert-dismissible .close {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: inherit;
+            opacity: 0.5;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .alert-dismissible .close:hover {
+            opacity: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .forgot-password {
+            text-align: left;
+        }
+
+        .forgot-password a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="static/Aelius.png" alt="Aelius AI Logo" class="header-logo">
+            <a href="/">Aelius AI</a>
+        </header>
+        
+        <div class="headline">
+            Welcome back
+        </div>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} alert-dismissible" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form action="{{ url_for('login', next=request.args.get('next', '')) }}" method="post">
+            <div class="field">
+                <div class="input-area">
+                    <input type="text" id="username_or_email" name="username_or_email" placeholder="Username or Email" required>
+                    <i class="icon fas fa-user"></i>
+                </div>
+            </div>
+            <div class="field">
+                <div class="input-area">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <i class="icon fas fa-lock"></i>
+                </div>
+            </div>
+            <!--
+            <div class="forgot-password">
+                <a href="{{ url_for('register') }}">Forgot Password?</a>
+            </div>-->
+            <button type="submit" class="submit-button">Login</button>
+        </form>
+        
+        <div class="mt-4" style="margin-top: 20px;">
+            Don't have an account? <a href="{{ url_for('register') }}">Sign up here!</a>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('.alert-dismissible .close').forEach((button) => {
+            button.addEventListener('click', () => {
+                button.closest('.alert').remove();
+            });
+        });
+    });
+</script>
+</body>
+</html>

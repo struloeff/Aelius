@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aelius AI - API Temporarily Unavailable</title>
+    <link rel="icon" href="static/Aelius.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Onest:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .message {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .update-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .update-box h2 {
+            color: #495057;
+            margin-bottom: 15px;
+        }
+        .update-box p {
+            color: #6c757d;
+        }
+        .contact-info {
+            margin-top: 30px;
+            font-style: italic;
+        }
+        .faq-section {
+            text-align: left;
+            margin-top: 40px;
+        }
+        .faq-section h2 {
+            margin-bottom: 20px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item h3 {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="navbar-brand">
+                <img src="static/Aelius.png" alt="Aelius AI Logo" class="navbar-logo">
+                <span style="white-space: nowrap;">Aelius AI</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-list">
+                <a href="/">Home</a>
+                <a href="/chat">Try Text AI</a>
+                <a href="/image">Try Image AI</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>API Temporarily Unavailable</h1>
+            <div class="message">
+                <p>We regret to inform you that our API is currently unavailable due to security concerns. Our team is working diligently to address these issues and restore service as quickly as possible.</p>
+            </div>
+            
+            <div class="update-box">
+                <h2>Current Status Update</h2>
+                <p>We have identified potential vulnerabilities in our API infrastructure. To ensure the utmost protection of our users' data and maintain the integrity of our services, we have temporarily disabled API access.</p>
+                <p>We understand the inconvenience this may cause and appreciate your patience and understanding during this time.</p>
+            </div>
+            
+            <p>We anticipate that the API will be available again soon, with improved security features to better serve your needs. Please check back later.</p>
+            
+            <div class="contact-info">
+                <a href="/contact" class="cta-button">Contact Us for More Information</a>
+            </div>
+            
+            <div class="faq-section">
+                <h2>Questions?</h2>
+                <div class="faq-item">
+                    <h3>Q: When will the API be back online?</h3>
+                    <p>A: While we can't provide an exact timeframe, we are working to restore service as quickly as possible. We will provide updates on our website and via email to registered users.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q: Is my data safe?</h3>
+                    <p>A: Yes, your data remains secure. This temporary shutdown is a precautionary measure to prevent any potential security breaches.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Q: Will there be any changes to the API when it comes back online?</h3>
+                    <p>A: This will probably be a major overhaul of the API, we will provide documentation and support when the API returns.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2024 Aelius AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

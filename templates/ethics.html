@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aelius AI - Ethical AI Use</title>
+    <link rel="icon" href="static/Aelius.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Onest:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+@media screen and (max-width: 768px) {
+        .menu-toggle {
+            margin-top: 5px;
+            display: flex;
+            width: auto;
+            height: auto;
+            visibility: visible;
+        }
+    }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.center-content {
+    margin-top: 7vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.abstract {
+    font-style: italic;
+    margin: 20px 0;
+    padding: 20px;
+    background-color: rgba(52, 152, 219, 0.1);
+    border-left: 5px solid var(--secondary-color);
+}
+
+</style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="navbar-brand">
+                <img src="static/Aelius.png" alt="Aelius AI Logo" class="navbar-logo">
+                <span style="white-space: nowrap;">Aelius AI</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-list">
+                <a href="/">Home</a>
+                <a href="/chat">Try Text AI</a>
+                <a href="/image">Try Image AI</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container" id="home">
+            <div class="center-content">
+                <p class="main-text">Ethical AI Use</p>
+                <p class="word-animation">Ensuring responsible and beneficial AI development.</p>
+            </div>
+        </div>
+
+        <div class="container content-grid">
+            <aside class="sidebar">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#introduction" class="smooth-scroll">Introduction</a></li>
+                    <li><a href="#principles" class="smooth-scroll">Guiding Principles</a></li>
+                    <li><a href="#implementation" class="smooth-scroll">Implementation</a></li>
+                    <li><a href="#considerations" class="smooth-scroll">Ethical Considerations</a></li>
+                    <li><a href="#governance" class="smooth-scroll">Governance</a></li>
+                    <li><a href="#conclusion" class="smooth-scroll">Conclusion</a></li>
+                </ul>
+            </aside>
+
+            <div class="main-content">
+                <div class="abstract">
+                    <strong>Abstract:</strong> This document outlines Aelius AI's commitment to ethical artificial intelligence development and use. It covers our guiding principles, implementation strategies, and ongoing efforts to ensure responsible AI practices. Our approach emphasizes transparency, fairness, privacy, and the overall benefit to humanity.
+                </div>
+
+                <section id="introduction" class="section">
+                    <h2>1. Introduction</h2>
+                    <p>Artificial Intelligence (AI) has the potential to greatly benefit society, but it also presents significant ethical challenges. At Aelius AI, we recognize our responsibility to develop and deploy AI systems that are not only technologically advanced but also ethically sound. This document presents our framework for ethical AI use, which guides all our operations and research.</p>
+                </section>
+
+                <section id="principles" class="section">
+                    <h2>2. Guiding Principles</h2>
+                    <p>Our ethical AI framework is built upon the following core principles:</p>
+                    
+                    <h3>2.1 Beneficence</h3>
+                    <p>AI systems developed by Aelius AI should benefit humanity. We strive to create AI that enhances human capabilities, improves quality of life, and addresses global challenges.</p>
+                    
+                    <h3>2.2 Non-maleficence</h3>
+                    <p>Our AI systems are designed with safeguards to prevent harm. This includes rigorous testing for potential negative impacts and the implementation of fail-safe mechanisms.</p>
+                    
+                    <h3>2.3 Autonomy</h3>
+                    <p>We respect human autonomy and decision-making. Our AI systems are tools to aid human judgment, not to replace it entirely.</p>
+                    
+                    <h3>2.4 Justice</h3>
+                    <p>Aelius AI is committed to developing AI systems that are fair and do not discriminate based on race, gender, age, or other protected characteristics.</p>
+                    
+                    <h3>2.5 Explicability</h3>
+                    <p>We strive for transparency in our AI systems. This includes efforts to make AI decision-making processes as interpretable and explainable as possible.</p>
+                </section>
+
+                <section id="implementation" class="section">
+                    <h2>3. Implementation Strategies</h2>
+                    
+                    <h3>3.1 Ethical Review Process</h3>
+                    <p>All AI projects at Aelius AI undergo a rigorous ethical review process. This includes:</p>
+                    <ul>
+                        <li>Initial ethical impact assessment</li>
+                        <li>Regular ethical audits throughout development</li>
+                        <li>Final ethical review before deployment</li>
+                    </ul>
+                    
+                    <h3>3.2 Diverse Development Teams</h3>
+                    <p>We actively promote diversity in our AI development teams to ensure a wide range of perspectives and to mitigate potential biases.</p>
+                    
+                    <h3>3.3 Ongoing Monitoring and Adjustment</h3>
+                    <p>Our AI systems are continuously monitored for ethical performance. We have established feedback mechanisms and are prepared to make necessary adjustments to maintain ethical standards.</p>
+                    
+                    <h3>3.4 Collaboration with External Experts</h3>
+                    <p>Aelius AI regularly engages with ethicists, policymakers, and other stakeholders to stay informed about ethical considerations in AI and to contribute to the broader discourse on AI ethics.</p>
+                </section>
+
+                <section id="considerations" class="section">
+                    <h2>4. Specific Ethical Considerations</h2>
+                    
+                    <h3>4.1 Privacy and Data Protection</h3>
+                    <p>Aelius AI is committed to protecting user privacy. We adhere to strict data protection standards, including:</p>
+                    <ul>
+                        <li>Minimal data collection</li>
+                        <li>Secure data storage and transmission</li>
+                        <li>Clear and accessible privacy policies</li>
+                        <li>User control over personal data</li>
+                    </ul>
+                    
+                    <h3>4.2 Bias Mitigation</h3>
+                    <p>We actively work to identify and mitigate biases in our AI systems through:</p>
+                    <ul>
+                        <li>Diverse and representative training data</li>
+                        <li>Regular bias audits</li>
+                        <li>Ongoing research into fairness in machine learning</li>
+                    </ul>
+                    
+                    <h3>4.3 Environmental Considerations</h3>
+                    <p>Recognizing the environmental impact of AI, we are committed to developing energy-efficient algorithms and using sustainable computing resources.</p>
+                </section>
+
+                <section id="governance" class="section">
+                    <h2>5. Governance and Accountability</h2>
+                    <p>Aelius AI has established an AI Ethics Board responsible for:</p>
+                    <ul>
+                        <li>Overseeing the implementation of our ethical AI framework</li>
+                        <li>Addressing ethical challenges as they arise</li>
+                        <li>Ensuring compliance with relevant laws and regulations</li>
+                        <li>Promoting a culture of ethical awareness within the organization</li>
+                    </ul>
+                </section>
+
+                <section id="conclusion" class="section">
+                    <h2>6. Conclusion</h2>
+                    <p>Ethical AI use is not a destination but a journey. At Aelius AI, we are committed to continuous improvement in our ethical practices. We recognize that as AI technology evolves, so too must our ethical framework. We invite ongoing dialogue with our users, the broader AI community, and society at large as we work towards a future where AI benefits all of humanity.</p>
+                </section>
+
+                <a href="/contact" class="cta-button">Contact Us for More Information</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h2>Aelius AI</h2>
+                    <p>Empowering the future with privacy-focused, cutting-edge artificial intelligence solutions. We're committed to innovation, ethics, and data security.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#about">Our Mission</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/chat">Text AI</a></li>
+                        <li><a href="/image">Image AI</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/integrate">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/usage">Usage Policy</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/ethics">Ethical AI Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Aelius AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.smooth-scroll');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offset = 80; // Offset in pixels
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-list').classList.toggle('active');
+        });
+
+        // Animation for main text
+        const mainText = document.querySelector('.main-text');
+        const words = mainText.textContent.split(' ');
+        mainText.innerHTML = words.map((word, index) => 
+            `<span class="word word-${index}">${word}</span>`
+        ).join(' ');
+        const mainWordSpans = mainText.querySelectorAll('.word');
+
+        let delay = 0;
+        mainWordSpans.forEach((wordSpan) => {
+            wordSpan.style.animation = `fadeInUp 0.5s forwards ${delay}s`;
+            delay += 0.05;
+        });
+
+        // Animation for subtext
+        const textElements = document.querySelectorAll('.word-animation');
+        textElements.forEach((element) => {
+            const words = element.textContent.split(' ');
+            element.innerHTML = words.map((word) => `<span class="word">${word}</span>`).join(' ');
+            const wordSpans = element.querySelectorAll('.word');
+
+            let delay = 0;
+            wordSpans.forEach((wordSpan) => {
+                wordSpan.style.animation = `fadeIn 0.3s forwards ${delay}s`;
+                delay += 0.035;
+            });
+        });
+    </script>
+</body>
+</html>

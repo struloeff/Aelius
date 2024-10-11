@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="static/Aelius.png" type="image/x-icon">
+    <title>Contact Us - Aelius AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+    @media screen and (max-width: 768px) {
+        .menu-toggle {
+            margin-top: 5px;
+            display: flex;
+            width: auto;
+            height: auto;
+            visibility: visible;
+        }
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+
+    .center-content {
+        margin-top: 7vh;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        margin-top: 40px;
+    }
+
+    .contact-form, .contact-info {
+        background-color: var(--card-bg);
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+        border: 1px solid #4a4a4a;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-form:hover, .contact-info:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(255,255,255,0.15);
+    }
+
+    .contact-form h2, .contact-info h2 {
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        color: var(--text-color);
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #4a4a4a;
+        background-color: #1a1a1a;
+        color: var(--text-color);
+        border-radius: 4px;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+        border-color: var(--secondary-color);
+        outline: none;
+    }
+
+    .submit-btn {
+        background-color: var(--secondary-color);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+        background-color: #2980b9;
+    }
+
+    .contact-info p {
+        margin-bottom: 15px;
+    }
+
+    .contact-info strong {
+        color: var(--secondary-color);
+    }
+
+    .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .social-links a {
+        color: var(--text-color);
+        font-size: 24px;
+        transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: var(--secondary-color);
+    }
+
+    .map-container {
+        margin-top: 40px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animated {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    @media screen and (max-width: 768px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .contact-info {
+        background-color: var(--card-bg);
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+        border: 1px solid #4a4a4a;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .contact-info:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(255,255,255,0.15);
+    }
+
+    .contact-info h2 {
+        color: var(--secondary-color);
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .contact-section {
+        margin-bottom: 20px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .contact-details {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .contact-details li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        color: var(--text-color);
+    }
+
+    .contact-details li i {
+        margin-right: 10px;
+        color: var(--secondary-color);
+    }
+
+    .contact-details li a {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .contact-details li a:hover {
+        color: var(--secondary-color);
+    }
+
+    .contact-details li span {
+        margin-right: 5px;
+    }
+
+    .contact-divider {
+        border: 1px solid #4a4a4a;
+        margin: 20px 0;
+    }
+
+    .contact-section {
+        margin-bottom: 20px;
+    }
+
+    .contact-section h3 {
+        color: var(--secondary-color);
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .contact-details li i {
+        margin-right: 10px;
+        color: var(--secondary-color);
+    }
+
+    .contact-details li {
+        white-space: pre;
+    }
+
+    .contact-details li a:hover {
+        color: var(--secondary-color);
+    }
+
+    </style>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="navbar-brand">
+                <img src="static/Aelius.png" alt="Aelius AI Logo" class="navbar-logo">
+                <span style="white-space: nowrap;">Aelius AI</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-list">
+                <a href="/">Home</a>
+                <a href="/chat">Try Text AI</a>
+                <a href="/image">Try Image AI</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container" id="home">
+            <div class="center-content">
+                <p class="main-text">Contact Us</p>
+                <p class="word-animation">We're here to help. Reach out to us for any questions or support needs.</p>
+            </div>
+        </div>
+
+        <script>
+            // Animation for main text
+            const mainText = document.querySelector('.main-text');
+            const words = mainText.textContent.split(' ');
+            mainText.innerHTML = words.map((word, index) => 
+                `<span class="word word-${index}">${word}</span>`
+            ).join(' ');
+            const mainWordSpans = mainText.querySelectorAll('.word');
+    
+            let delay = 0;
+            mainWordSpans.forEach((wordSpan) => {
+                wordSpan.style.animation = `fadeInUp 0.5s forwards ${delay}s`;
+                delay += 0.05; // Adjust the delay between words
+            });
+    
+            // Animation for subtext (unchanged)
+            const textElements = document.querySelectorAll('.word-animation');
+            textElements.forEach((element) => {
+                const words = element.textContent.split(' ');
+                element.innerHTML = words.map((word) => `<span class="word">${word}</span>`).join(' ');
+                const wordSpans = element.querySelectorAll('.word');
+    
+                let delay = 0;
+                wordSpans.forEach((wordSpan) => {
+                    wordSpan.style.animation = `fadeIn 0.3s forwards ${delay}s`;
+                    delay += 0.035; // Adjust the delay between words
+                });
+            });
+        </script>
+
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-form animated">
+                    <h2>Send us a message</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+        
+                <div class="contact-info animated">
+                    <h2>Contact Information</h2>
+                    
+                    <div class="contact-section">
+                        <h3>Lead Developer</h3>
+                        <p><strong>William Struloeff</strong></p>
+                        <ul class="contact-details">
+                            <li><i class="fas fa-envelope"></i> Email: <a href="mailto:willstruloeff@gmail.com"> willstruloeff@gmail.com</a></li>
+                            <li><i class="fab fa-github"></i> GitHub: <a href="https://github.com/i5tar" target="_blank"> i5tar</a></li>
+                            <li><i class="fas fa-mobile-alt"></i> Discord: <a href="https://discord.com/users/728045705570156573"> i5r</a></li>
+                        </ul>
+                    </div>
+        
+                    <hr class="contact-divider">
+        
+                    <div class="contact-section">
+                        <h3>Support Contact</h3>
+                        <ul class="contact-details">
+                            <li><i class="fas fa-headset"></i> Email: <a href="mailto:support@aelius.live">support@aelius.live</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h2>Aelius AI</h2>
+                    <p>Empowering the future with cutting-edge artificial intelligence solutions. We're committed to innovation, ethics, and transformative technology.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#about">Our Mission</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/chat">Text AI</a></li>
+                        <li><a href="/image">Image AI</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/integrate">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/usage">Usage Policy</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/ethics">Ethical AI Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Aelius AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-list').classList.toggle('active');
+        });
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const animatedElements = document.querySelectorAll('.animated');
+    animatedElements.forEach((el) => {
+        el.classList.add('animate');
+    });
+});
+    </script>
+</body>
+</html>

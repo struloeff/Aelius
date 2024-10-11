@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aelius AI - Privacy Policy</title>
+    <link rel="icon" href="static/Aelius.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+    @media screen and (max-width: 768px) {
+            .menu-toggle {
+                margin-top: 5px;
+                display: flex;
+                width: auto;
+                height: auto;
+                visibility: visible;
+            }
+        }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 10px;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="/" class="navbar-brand">
+                <img src="static/Aelius.png" alt="Aelius AI Logo" class="navbar-logo">
+                <span style="white-space: nowrap;">Aelius AI</span>
+            </a>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-list">
+                <a href="/">Home</a>
+                <a href="/chat">Try Text AI</a>
+                <a href="/image">Try Image AI</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <style>
+            .center-content {
+                margin-top: 7vh;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .main-text {
+                font-family: 'Onest', sans-serif;
+                font-weight: bold;
+                font-size: 3.2em;
+                margin-bottom: 2vh;
+                line-height: 1.2;
+            }
+
+            .main-text .word {
+                display: inline-block;
+                opacity: 0;
+                transform: translateY(50px);
+                background-clip: text;
+                -webkit-background-clip: text;
+                color: transparent;
+            }
+
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            .word-animation {
+                display: inline-block;
+                overflow: hidden;
+            }
+
+            .word-animation .word {
+                display: inline-block;
+                overflow: hidden;
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            @keyframes fadeIn {
+                0% {
+                    transform: translateY(100%);
+                    opacity: 0;
+                }
+                100% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+            }
+
+            .main-text .word-0 { background-image: linear-gradient(to right, #84fab0, #6bead4); }
+            .main-text .word-1 { background-image: linear-gradient(to right, #6bead4, #50d4e0); }
+            .main-text .word-2 { background-image: linear-gradient(to right, #50d4e0, #35bde9); }
+            .main-text .word-3 { background-image: linear-gradient(to right, #35bde9, #1EA7F3); }
+        </style>
+
+        <div class="container" id="home">
+            <div class="center-content">
+                <p class="main-text">Aelius AI Privacy Policy</p>
+                <p class="word-animation">Your privacy is our top priority.</p>
+            </div>
+        </div>
+
+        <script>
+            // Animation for main text
+            const mainText = document.querySelector('.main-text');
+            const words = mainText.textContent.split(' ');
+            mainText.innerHTML = words.map((word, index) => 
+                `<span class="word word-${index}">${word}</span>`
+            ).join(' ');
+            const mainWordSpans = mainText.querySelectorAll('.word');
+    
+            let delay = 0;
+            mainWordSpans.forEach((wordSpan) => {
+                wordSpan.style.animation = `fadeInUp 0.5s forwards ${delay}s`;
+                delay += 0.05;
+            });
+    
+            // Animation for subtext
+            const textElements = document.querySelectorAll('.word-animation');
+            textElements.forEach((element) => {
+                const words = element.textContent.split(' ');
+                element.innerHTML = words.map((word) => `<span class="word">${word}</span>`).join(' ');
+                const wordSpans = element.querySelectorAll('.word');
+    
+                let delay = 0;
+                wordSpans.forEach((wordSpan) => {
+                    wordSpan.style.animation = `fadeIn 0.3s forwards ${delay}s`;
+                    delay += 0.035;
+                });
+            });
+        </script>
+
+        <div class="container content-grid">
+            <aside class="sidebar">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#privacy-commitment" class="smooth-scroll">Our Privacy Commitment</a></li>
+                    <li><a href="#data-collection" class="smooth-scroll">Data Collection</a></li>
+                    <li><a href="#data-usage" class="smooth-scroll">Data Usage</a></li>
+                    <li><a href="#data-security" class="smooth-scroll">Data Security</a></li>
+                    <!--<li><a href="#user-rights" class="smooth-scroll">User Rights</a></li>-->
+                    <li><a href="#updates" class="smooth-scroll">Policy Updates</a></li>
+                </ul>
+            </aside>
+
+            <div class="main-content">
+                <section id="privacy-commitment" class="section">
+                    <h2>Our Privacy Commitment</h2>
+                    <p>At Aelius AI, we are deeply committed to protecting your privacy and ensuring the security of your personal information. Our approach to privacy is built on the following principles:</p>
+                    <p>1. Transparency: We are clear about what data we collect and how we use it.</p>
+                    <p>2. Minimalism: We only collect the data that is absolutely necessary for providing our services.</p>
+                    <p>3. Security: We employ industry-leading security measures to protect your data.</p>
+                    <p>4. User Control: We give you control over your data and respect your privacy choices.</p>
+                </section>
+                
+                <section id="data-collection" class="section">
+                    <h2>Data Collection</h2>
+                    <p>Aelius AI is committed to minimal data collection. We only collect:</p>
+                    <p>1. Account Information: Basic details needed to create and manage your account.</p>
+                    <p>2. User Preferences: Settings you choose to customize your experience.</p>
+                    <p>3. Usage Data: We may monitor your usage patterns to determine compliance with our policies.</p>
+                    <p>We do not collect or store any user-generated content, conversations, or queries for training purposes or any other reason beyond the immediate processing required to provide our service.</p>
+                </section>
+                
+                <section id="data-usage" class="section">
+                    <h2>Data Usage</h2>
+                    <p>The limited data we collect is used exclusively for:</p>
+                    <p>1. Providing and improving our AI services</p>
+                    <p>2. Personalizing your experience based on your preferences</p>
+                    <p>3. Account management and security</p>
+                    <p>4. Communicating important updates about our services</p>
+                    <p>We do not sell, rent, or share your personal information with third parties for any purpose.</p>
+                </section>
+                
+                <section id="data-security" class="section">
+                    <h2>Data Security</h2>
+                    <p>Protecting your data is our highest priority. We employ robust security measures, including:</p>
+                    <p>1. End-to-end encryption for all data transmissions</p>
+                    <p>2. Regular security audits and penetration testing</p>
+                    <p>3. Strict access controls and authentication procedures</p>
+                    <p>4. Continuous monitoring for potential security threats</p>
+                    <p>5. Regular data backup and disaster recovery planning</p>
+                </section>
+                
+                <!--
+                <section id="user-rights" class="section">
+                    <h2>User Rights</h2>
+                    <p>We respect and uphold your rights regarding your personal data:</p>
+                    <p>1. Access: You can request a copy of your personal data at any time.</p>
+                    <p>2. Correction: You can update or correct your personal information easily.</p>
+                    <p>3. Deletion: You can request the deletion of your account and associated data.</p>
+                    <p>4. Portability: You can request your data in a machine-readable format.</p>
+                    <p>5. Opt-out: You can opt-out of non-essential data collection or processing.</p>
+                </section>
+                -->
+                <section id="updates" class="section">
+                    <h2>Policy Updates</h2>
+                    <p>We are committed to maintaining transparency about our privacy practices:</p>
+                    <p>1. Notification: Users will be notified of any significant changes to this policy.</p>
+                    <p>2. Review Period: We provide a 30-day review period for major policy updates.</p>
+                    <p>3. Feedback: We welcome user feedback on our privacy practices and policy updates.</p>
+                    <p>4. Version History: A record of policy changes is maintained and accessible to users.</p>
+                    <p>5. Clarification: Our support team is available to address any questions about our privacy policy.</p>
+                </section>
+
+                <a href="/contact" class="cta-button">Contact Us for Privacy Inquiries</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h2>Aelius AI</h2>
+                    <p>Empowering the future with privacy-focused, cutting-edge artificial intelligence solutions. We're committed to innovation, ethics, and data security.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#about">Our Mission</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/chat">Text AI</a></li>
+                        <li><a href="/image">Image AI</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/integrate">API</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/usage">Usage Policy</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/ethics">Ethical AI Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Aelius AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.smooth-scroll');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        const offset = 80; // Offset in pixels
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-list').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Aelius Chat</title>
+    <link rel="icon" href="static/Aelius.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Onest', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a;
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            white-space: -moz-pre-wrap;
+            white-space: -pre-wrap;
+            white-space: -o-pre-wrap;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        #chatContainer {
+            flex: 1;
+            overflow-y: scroll;
+            padding: 20px 0px;
+            padding-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Onest', sans-serif;
+        }
+
+
+        h1 {
+            font-weight: bold;
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 0px;
+            color: #3498db;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        body.no-scroll {
+            position: fixed;
+            width: 100%;
+        }
+
+        #chatBox {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        p {
+            animation: fadeInUp 0.3s ease-out;
+            margin: 12px 0;
+            padding: 10px 15px;
+            border-radius: 18px 18px 18px 0;
+            max-width: 85%;
+            width: fit-content;
+            position: relative;
+            word-wrap: break-word;
+            color: #ecf0f1;
+            background-color: #34495e;
+        }
+
+        p.user {
+            align-self: flex-end;
+            border-radius: 18px 18px 0 18px;
+            background-color: #3498db;
+            color: #ecf0f1;
+        }
+
+        #inputContainer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 8px;
+            background-color: #34495e;
+            z-index: 1;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        button {
+            margin-right: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        button i {
+            font-size: 18px; /* Adjust the icon size */
+            margin-left: 0;  /* Center icon, no margin needed */
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #testPrompts {
+            position: fixed;
+            bottom: 60px;
+            left: 49.3%;
+            width: 95%;
+            transform: translateX(-50%);
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 10px;
+            opacity: 1;
+            transition: opacity 0.5s;
+            display: block;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .label {
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+            color: #95a5a6;
+            font-size: 12px;
+        }
+
+        .prompt {
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 1px solid #4a4a4a;
+            color: #ecf0f1;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin: 0 5px;
+            display: inline-block;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s, display 0.5s;
+        }
+
+
+        .prompt:hover {
+            background-color: #1a1a1a;
+        }
+
+        @media (max-width: 768px) {
+            .prompt {
+                font-size: 12px;
+                padding: 5px 10px;
+                margin: 3px;
+            }
+
+            #testPrompts {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+            
+        .fadeOut {
+            animation: fadeOut 0.5s forwards;
+        }
+
+        @keyframes fadeOutAndShrink {
+            0% {
+                opacity: 1;
+                max-height: 50px;
+                padding: initial;
+                margin: 10px 0;
+                border-width: initial;
+            }
+
+            100% {
+                opacity: 0;
+                max-height: 0;
+                padding: 0;
+                margin: 0;
+                border-width: 0;
+            }
+        }
+
+        .infoMessage {
+            color: #2ecc71;
+            margin: 10px 0;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        a {
+        text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="chatContainer">
+        <a href="/"><h1>Aelius AI</h1></a>
+
+        <div id="chatBox" style="display: flex; flex-direction: column; opacity: 0;"></div>
+    </div>
+    <div id="testPrompts">
+        <span class="label">Try these prompts:</span>
+        <div class="prompt" onclick="testPrompt('Recommend a book.')">Recommend a book.</div>
+        <div class="prompt" onclick="testPrompt('Write me some code.')">Write me some code.</div>
+        <div class="prompt" onclick="testPrompt('Give me a fun fact.')">Give me a fun fact.</div>
+        <div class="prompt" onclick="testPrompt('Tell me a joke.')">Tell me a joke.</div>
+    </div>    
+    <div id="inputContainer">
+        <input type="text" id="userInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+    
+
+    <script>
+    const chatContainer = document.getElementById('chatContainer');
+    const chatBox = document.getElementById('chatBox');
+    const userInput = document.getElementById('userInput');
+    let isWaitingForResponse = false;
+    let infoMessageTimeout;
+    let infoMessageDiv;
+
+    function decodeHtml(html) {
+        var txt = document.createElement('textarea');
+        txt.innerHTML = html;
+        return txt.value;
+    }
+
+    function formatWithPrettier(code) {
+        try {
+            return prettier.format(code, { parser: "python", plugins: prettierPlugins });
+        } catch (e) {
+            console.error("Prettier formatting error:", e);
+            return code;
+        }
+    }
+
+    function formatCodeBlocks(message) {
+    const regex = /```([\s\S]*?)```/g;
+    return message.replace(regex, function(match, p1) {
+        let formattedCode = escapeHtml(formatWithPrettier(decodeHtml(p1)));
+        return '<pre>' + formattedCode + '</pre>';
+    });
+}
+
+    userInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.keyCode === 13) {
+            e.preventDefault();
+            sendMessage();
+            userInput.blur();
+        }
+    });
+
+    const testPrompts = document.getElementById('testPrompts');
+
+    function fadeOutPrompts() {
+        testPrompts.animate([
+            { opacity: 1 },
+            { opacity: 0 }
+        ], {
+            duration: 500,
+            fill: 'forwards'
+        }).onfinish = () => {
+            testPrompts.style.display = 'none';
+        };
+    }
+
+    userInput.addEventListener('input', function() {
+        if (userInput.value.trim() !== '') {
+            fadeOutPrompts();
+        }
+    });
+
+    function displayMessage(who, message) {
+        const formattedMessage = formatParagraphsAndCode(message);
+        const messageDiv = document.createElement('p');
+        if (who === 'You') {
+            messageDiv.classList.add('user');
+        }
+        messageDiv.innerHTML = `<strong>${who}:</strong> ${formattedMessage}`;
+        chatBox.appendChild(messageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function escapeHtml(unsafe) {
+    return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+function formatParagraphsAndCode(text) {
+    // Handle code blocks
+    const regex = /```([\s\S]*?)```/g;
+    let formattedText = text.replace(regex, function(match, p1) {
+        let formattedCode = escapeHtml(formatWithPrettier(decodeHtml(p1)));
+        return '<pre>' + formattedCode + '</pre>';
+    });
+
+    // Handle bold text
+    formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+    let segments = formattedText.split(/(<pre>[\s\S]*?<\/pre>)/);
+    for (let i = 0; i < segments.length; i++) {
+        if (!segments[i].startsWith('<pre>')) {
+            segments[i] = segments[i].replace(/\n/g, '<br>');
+        }
+    }
+    return segments.join('');
+}
+
+
+    function setBodyHeight() {
+        document.body.style.height = `${window.innerHeight}px`;
+    }
+
+    setBodyHeight();
+    window.addEventListener('resize', setBodyHeight);
+
+    function testPrompt(message) {
+        userInput.value = message;
+        sendMessage();
+        fadeOutPrompts();
+    }
+
+    window.addEventListener('load', function() {
+        chatBox.style.animation = 'slideUp 0.5s forwards';
+
+        setTimeout(() => {
+            displayMessage('Assistant', "Hello! How can I assist you today?");
+        }, 500);
+
+        testPrompts.classList.remove('hidden');
+        testPrompts.style.display = 'block';
+    });
+
+    async function sendMessage() {
+    const message = userInput.value;
+
+    if (isWaitingForResponse) {
+        displayErrorMessage("Please wait for the generation to complete.");
+        return;
+    }
+
+    if (message.trim() === '') return;
+
+    displayMessage('You', message);
+    userInput.value = '';
+
+    isWaitingForResponse = true;
+
+    infoMessageTimeout = setTimeout(() => {
+        displayInfoMessage("We're still working on your request. Please hold on.");
+    }, 5000);
+
+    // Set a timeout to display an error message if response takes longer than 5 minutes
+    errorMessageTimeout = setTimeout(() => {
+        displayErrorMessage("Error communicating with the server. Please try again.");
+        isWaitingForResponse = false;
+    }, 300000); // 300000 milliseconds = 5 minutes
+
+    try {
+        const response = await fetch('https://aelius.live/api/v1/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer 9Fow952IOV25flPnpofffYe-k8nbw992XB9ofYdycm0'
+            },
+            body: JSON.stringify({ user_input: message })
+        });
+
+        const responseData = await response.json();
+        clearTimeout(infoMessageTimeout);
+        clearTimeout(errorMessageTimeout);
+        if (infoMessageDiv) {
+            infoMessageDiv.style.animation = "fadeOutAndShrink .5s forwards";
+            setTimeout(() => {
+                infoMessageDiv.remove();
+            }, 700);
+        }
+        setTimeout(() => {
+            displayMessage('Assistant', responseData.response);
+            isWaitingForResponse = false;
+            userInput.focus();
+        }, 500);
+
+    } catch (error) {
+        console.error("Error fetching AI response:", error);
+        clearTimeout(errorMessageTimeout); // Clear the error message timeout if an error occurs
+        displayErrorMessage("Error communicating with the server. Please try again.");
+        isWaitingForResponse = false;
+    }
+
+    userInput.blur();
+}
+
+    function displayErrorMessage(message) {
+        const errorMessageDiv = document.createElement('div');
+        errorMessageDiv.innerHTML = `<strong>Error:</strong> ${message}`;
+        errorMessageDiv.style.color = "red";
+        errorMessageDiv.style.margin = "10px 0";
+        errorMessageDiv.style.animation = "fadeInUp 0.3s ease-out";
+        
+        chatBox.appendChild(errorMessageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+
+        setTimeout(() => {
+            errorMessageDiv.style.animation = "fadeOutAndShrink .5s forwards";
+            setTimeout(() => {
+                errorMessageDiv.remove();
+            }, 700);
+        }, 3000);
+    }
+
+    function displayInfoMessage(message) {
+        infoMessageDiv = document.createElement('div');
+        infoMessageDiv.innerHTML = `<strong>Info:</strong> ${message}`;
+        infoMessageDiv.classList.add('infoMessage');
+        infoMessageDiv.style.animation = "fadeInUp 0.3s ease-out";
+        
+        chatBox.appendChild(infoMessageDiv);
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+</script> 
+</body>
+</html>

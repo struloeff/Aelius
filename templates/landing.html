@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aelius AI</title>
+    <link rel="icon" href="static/Aelius.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Onest', sans-serif;
+            background-color: #0a0a0a;
+            color: #ecf0f1;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: #34495e;
+            border-bottom: 2px solid #3498db;
+            z-index: 1000;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none; 
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        .center-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: #ecf0f1;
+            margin: 0 20px;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+
+        .navbar a:hover {
+            color: #3498db;
+        }
+
+        .container {
+            padding: 50px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .container2 {
+            padding: 0px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h1 {
+            font-family: 'Onest', sans-serif;
+            font-weight: bold;
+            font-size: 3.2em;
+            margin-bottom: 0px;
+            -webkit-text-fill-color: linear-gradient(to right, #f06, #9f6);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                line-height: 1.08;
+            }
+        }
+
+        fire {
+            font-family: 'Onest', sans-serif;
+            font-weight: bold;
+            font-size: 2em;
+            margin-top: 20px;
+            padding: 10px 15px;
+            color: #3498db;
+            text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+            line-height: 1.2;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 20px;
+            font-size: 1em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        .features {
+            display: flex;
+            text-align: center;
+            justify-content: space-between;
+            padding: 25px 25px;
+            background-color: transparent;
+            gap: 20px;
+        }
+
+        .feature-box {
+            flex: 1;
+            padding: 0 10px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            border: 1px solid #4a4a4a;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-1px);
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .features {
+                flex-direction: column;
+                padding: 10px 20px;
+                gap: 0px;
+            }
+
+            .feature-box {
+                padding: 5px 5px;
+                margin-bottom: 15px;
+            }
+        }
+
+        .faq-container {
+            padding: 1px 20px;
+            max-width: 1100px;
+            margin: auto;
+            border-radius: 10px;
+            border: 1px solid #4a4a4a;
+            background-color: transparent;
+        }
+
+
+        .faq-item {
+            margin-bottom: 10px;
+        }
+
+        .contact-container {
+            padding: 0px 20px;
+            max-width: 1100px;
+            margin: 50px auto;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #34495e;
+        }
+
+        footer {
+            padding: 20px 0;
+            background-color: #34495e;
+            color: #ecf0f1;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #3498db;
+        }
+
+        .user {
+            background-color: #3498db;
+            color: #fff;
+            align-self: flex-start;
+        }
+
+        .aelius {
+            background-color: #ecf0f1;
+            color: #2c3e50;
+            align-self: flex-end;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .parallax {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            padding: 0 20px;
+        }
+
+        .chat-animation {
+            margin-top: 100px;
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            background-color: transparent;
+        }
+
+        .message {
+            animation: fadeInUp 1s forwards;
+            margin: 12px 0;
+            padding: 10px 15px;
+            border-radius: 18px 18px 18px 0;
+            max-width: 100%;
+            position: relative;
+            word-wrap: break-word;
+            color: #ecf0f1;
+            background-color: #34495e;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+            animation-delay: 0s;
+        }
+
+        .message.delayed {
+            animation-delay: .5s;
+        }
+
+
+        .message.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .message.user {
+            align-self: flex-end;
+            border-radius: 18px 18px 0 18px;
+            background-color: #3498db;
+            color: #ecf0f1;
+        }
+
+        .message.aelius {
+            align-self: flex-start;
+            margin: 0px 0;
+            padding: 10px 15px;
+            border-radius: 18px 18px 18px 0;
+            max-width: 70%;
+            position: relative;
+            word-wrap: break-word;
+            color: #ecf0f1;
+            background-color: #34495e;
+        }
+
+
+        @media only screen and (max-width: 768px) {
+            .navbar a {
+                margin: 0 15px;
+            }
+
+            .navbar {
+                padding: 15px 0px;
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .feature-box {
+                margin: 15px 0;
+            }
+
+            body {
+                font-size: 18px;
+            }
+
+            .container, .contact-container {
+                padding: 30px 10px;
+            }
+
+            .container2 {
+                padding: 0px 20px;
+                max-width: 1100px;
+                margin: auto;
+            }
+
+            .navbar > div {
+                display: none;
+                flex-direction: column;
+            }
+
+            .navbar.active > div {
+                display: flex;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        #home .btn {
+            opacity: 0;
+            animation: fadeIn 0.5s forwards 0.6s;
+        }
+
+        .accordion {
+            background-color: transparent;
+            color: #eee;
+            cursor: pointer;
+            padding: 12px 18px;
+            width: 100%;
+            border: .5px solid #4a4a4a;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: 0.4s;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .accordion:hover {
+            transform: translateY(-1px);
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        
+        .accordion:after {
+            content: '\02795';
+            font-size: 13px;
+            color: #fff !important;
+            float: right;
+            margin-left: 5px;
+        }
+        
+        .accordion.active:after {
+            content: "\2796";
+            color: #fff !important;
+        }
+        
+        
+        .panel {
+            padding: 0 18px;
+            background-color: transparent;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .navbar a {
+            font-size: 24px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar div {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar div a {
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .navbar-logo {
+            height: 32px;
+            width: auto;
+            margin-right: 8px;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            text-align: left;
+            width: 100%;
+            justify-content: end;
+            overflow: hidden;
+            max-height: 300px;
+            transition: none;
+            font-size: 20px;
+        }
+        
+        .nav-list.active {
+            max-height: 300px;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            visibility: hidden;
+            cursor: pointer;
+            width: 0;
+            height: 0;
+            margin-right: 10px;
+        }
+
+        h4 {
+            margin-left: 40px;
+        }
+
+
+        .bar {
+            background-color: #3498db;
+            height: 3px;
+            width: 25px;
+            margin: 3px;
+            border-radius: 2px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-list {
+                max-height: 0;
+                width: 100%;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #34495e;
+                flex-direction: column;
+            }
+
+            .nav-list a {
+                text-align: left;
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 10px;
+                border-bottom: 1px solid #3498db;
+                color: white;
+                text-decoration: none;
+                background-color: #34495e;
+                transition: background-color 0.3s;
+            }
+
+            .nav-list a:last-child {
+                border-bottom: none;
+            }
+
+            .nav-list a:hover {
+                background-color: #2c3e50;
+            }
+
+            .nav-list.active {
+                max-height: 300px;
+                padding: 0px 10px;
+                border-top: 2px solid #3498db;
+                border-bottom: 2px solid #3498db;
+            }
+
+            .login-button {
+                padding: 10px;
+                border-radius: 0;
+                width: 100%;
+                justify-content: flex-start;
+                background-color: #fff;
+            }
+
+            .login-button:hover {
+                background-color: #2c3e50;
+            }
+
+            .menu-toggle {
+                display: flex;
+                width: auto;
+                height: auto;
+                visibility: visible;
+            }
+
+        }
+
+        .model-section {
+            border-radius: 10px;
+            padding: 30px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            border: 1px solid #4a4a4a;
+            background-color: transparent;
+        }
+
+        .model-section:hover {
+            transform: scale(1.005);
+        }
+
+        .model-name {
+            font-size: 50px;
+            margin: 5px 0 15px 0; 
+            background: linear-gradient(to right, #f06, #9f6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .model-name {
+                font-size: 45px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .model-name {
+                font-size: 40px;
+            }
+        }
+
+        .model-description {
+            font-size: 16px;
+            margin: 2px 0 20px 0;
+            color: #ecf0f1;
+            line-height: 1.6;
+        }
+
+        .interact-button {
+            padding: 20px 40px;
+            font-size: 20px;
+            border: none;
+            color: #1a1a1a;
+            background-color: #3498db;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .interact-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-1px);
+        }
+
+        
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            font-size: 16px;
+            background-color: #2c3e50;
+            border-radius: 5px;
+            color: #ecf0f1;
+        }
+
+        .label {
+            display: block;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+            border-radius: 3px;
+            color: #7f8c8d;
+        }
+
+        .dropdown-btn {
+            cursor: pointer;
+            border: 1px solid #4a4a4a;
+            text-align: left;
+            outline: none;
+            font-size: 20px;
+            margin-bottom: 20px;
+            background: transparent;
+            color: #ecf0f1;
+            padding: 15px 25px;
+            border-radius: 5px;
+            width: 100%;
+            font-weight: 600;
+            transition: background 0.3s;
+            display: flex;
+            justify-content: space-between;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .dropdown-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .arrow {
+            transition: transform 0.3s;
+        }
+
+        .active-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            padding: 0 15px;
+            transition: max-height 0.5s, opacity 0.4s, padding 0.5s;
+            color: #ecf0f1;
+            font-size: 18px;
+            line-height: 1.6;
+            border-top: 1px solid #4a4a4a;
+        }
+
+        .dropdown-content.active-content {
+            max-height: 400px;
+            opacity: 1;
+            padding: 15px;
+            border-bottom: 1px solid #4a4a4a;
+            z-index: 10;
+            margin-bottom: 10px;
+        }
+
+        .dropdown-section {
+            margin-bottom: 0px;
+        }
+
+        .login-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 9px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            gap: 5px;
+        }
+
+        .login-button:hover {
+            background-color: #2980b9;
+        }
+
+        a.login-button {
+            background-color: #3498db;
+            color: #fff;
+            padding: 9px 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+            gap: 5px;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        a.login-button:hover {
+            background-color: #2980b9;
+            color: #fff;
+        }
+
+        a.login-button:hover svg {
+            color: #fff;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-list a.login-button {
+                background-color: #34495e;
+                color: #fff;
+                padding: 10px;
+                border-radius: 0;
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .nav-list a.login-button:hover {
+                background-color: #2c3e50;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <a href="/chat" class="navbar-brand">
+            <img src="static/Aelius.png" alt="Aelius AI Logo" class="navbar-logo">Aelius AI
+        </a>
+        <div class="navbar-right">
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-list" id="navList">
+                <a href="/chat" class="nav-item">Text AI</a>
+                <a href="/image" class="nav-item">Image AI</a>
+                <a href="/contact" class="nav-item">Contact</a>
+                {% if current_user.is_authenticated %}
+                    <a href="/logout" class="login-button nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                        Logout
+                    </a>
+                {% else %}
+                    <a href="/login" class="login-button nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-in"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" x2="3" y1="12" y2="12"/></svg>
+                        Login
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu');
+        const navList = document.getElementById('navList');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        mobileMenuButton.addEventListener('click', function () {
+            navList.classList.toggle('active');
+        });
+
+        window.addEventListener('resize', function () {
+            navList.classList.remove('active');
+        });
+
+        navItems.forEach(item => {
+            item.addEventListener('click', function (event) {
+                event.preventDefault();
+                navList.classList.remove('active');
+                const href = this.getAttribute('href');
+                window.location.href = href;
+            });
+        });
+    </script>
+
+    <div class="parallax">
+        <div class="chat-animation" id="chatAnimation">
+            <div class="message user">Hello, Aelius!</div>
+            <div class="message aelius delayed">Hello! How can I assist you today?</div>
+        </div>
+    </div>
+    
+
+    <style>
+        .main-text {
+            font-family: 'Onest', sans-serif;
+            font-weight: bold;
+            font-size: 3.2em;
+            margin-bottom: 2vh;
+            line-height: 1.2;
+        }
+
+        .main-text .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(50px);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .word-animation {
+            display: inline-block;
+            overflow: hidden;
+        }
+
+        .word-animation .word {
+            display: inline-block;
+            overflow: hidden;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+/* Individual word gradients for main text */
+.main-text .word-0 { background-image: linear-gradient(to right, #84fab0, #6bead4); }
+.main-text .word-1 { background-image: linear-gradient(to right, #6bead4, #50d4e0); }
+.main-text .word-2 { background-image: linear-gradient(to right, #50d4e0, #35bde9); }
+.main-text .word-3 { background-image: linear-gradient(to right, #35bde9, #1EA7F3); }
+.main-text .word-4 { background-image: linear-gradient(to right, #1EA7F3, #1E90FF); }
+
+
+    </style>
+</head>
+<body>
+    <div class="container" id="home">
+        <div class="center-content">
+            <p class="main-text">Welcome to Aelius AI</p>
+            <p class="word-animation">Bringing the power of the latest and greatest open-source AI to users and developers.</p>
+            <div class="button-container">
+                <a href="/chat" class="btn">Try Text AI</a>
+                <a href="/image" class="btn">Try Image AI</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animation for main text
+        const mainText = document.querySelector('.main-text');
+        const words = mainText.textContent.split(' ');
+        mainText.innerHTML = words.map((word, index) => 
+            `<span class="word word-${index}">${word}</span>`
+        ).join(' ');
+        const mainWordSpans = mainText.querySelectorAll('.word');
+
+        let delay = 0;
+        mainWordSpans.forEach((wordSpan) => {
+            wordSpan.style.animation = `fadeInUp 0.5s forwards ${delay}s`;
+            delay += 0.05; // Adjust the delay between words
+        });
+
+        // Animation for subtext (unchanged)
+        const textElements = document.querySelectorAll('.word-animation');
+        textElements.forEach((element) => {
+            const words = element.textContent.split(' ');
+            element.innerHTML = words.map((word) => `<span class="word">${word}</span>`).join(' ');
+            const wordSpans = element.querySelectorAll('.word');
+
+            let delay = 0;
+            wordSpans.forEach((wordSpan) => {
+                wordSpan.style.animation = `fadeIn 0.3s forwards ${delay}s`;
+                delay += 0.035; // Adjust the delay between words
+            });
+        });
+    </script>
+
+    <div class="features" id="features">
+        <div class="feature-box">
+            <h2>Open-Source AI</h2>
+            <p>Harnessing the power of community-driven innovation. Transparent, adaptable, and continuously improving AI technology.</p>
+        </div>
+        <div class="feature-box">
+            <h2>Private & Secure</h2>
+            <p>We don't store your data. Simple. Your conversations are encrypted and deleted when you are finished.</p>
+        </div>
+        <div class="feature-box">
+            <h2>Unmatched Speed</h2>
+            <p>Experience over 30 tokens per second, surpassing speeds offered by the free versions of ChatGPT and Claude.</p>
+        </div>        
+        <div class="feature-box" onclick="window.location.href='/integrate'">
+            <h2>Free API</h2>
+            <p>Lightning-fast responses without burning a hole in your pocket. <a href="/integrate">Test or use the API for free.</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown(id, arrowId) {
+            const content = document.getElementById(id);
+            const arrow = document.getElementById(arrowId);
+            if (content.classList.contains('active-content')) {
+                content.classList.remove('active-content');
+                arrow.classList.remove('active-arrow');
+            } else {
+                content.classList.add('active-content');
+                arrow.classList.add('active-arrow');
+            }
+        }
+    </script>
+
+    <div class="container2" id="models">
+        <fire>Powered By</fire>
+
+        <div class="model-section">
+            <span class="label">Text Generation</span>
+            <div class="model-name">Llama 3.1</div>
+            <div class="model-description">
+                Llama 3.1 redefines open-source AI text generation, offering unparalleled power and versatility. The model excels in general knowledge, multilingual translation, math, and tool use, with a context length of 128K and comprehensive coding capabilities. This model represents the cutting edge of open-source AI technology, rivaling the capabilities of the most advanced proprietary models available today.
+            </div>
+            <button class="interact-button" onclick="location.href='/chat'">Start Chatting</button>
+        </div>
+
+        <div class="model-section">
+            <span class="label">Image Generation</span>
+            <div class="model-name">Dreamshaper v8</div>
+            <div class="model-description">
+                Discover Dreamshaper v8, the apex of open source AI image generation. Renowned for captivating fantasy images and diverse portraits, its latest iteration balances photorealism with distinct artistic brilliance.
+            </div>
+            <button class="interact-button" onclick="location.href='/image'">Start Creating</button>
+        </div>
+
+        <div class="dropdown-section">
+            <button class="dropdown-btn" onclick="toggleDropdown('licenseContent', 'arrow1')">
+                Usage Policy
+                <span id="arrow1" class="arrow">&#9660;</span>
+            </button>
+            <div id="licenseContent" class="dropdown-content">
+                At Aelius, we provide open access to community-built AI models like Llama 3.1 and Dreamshaper v8. By hosting and fine-tuning these tools, we aim to encourage ethical innovation that benefits society. Bfore using our services, please review our <a href="/usage">Usage Policy</a>. For more information visit their websites or <a href="#contact">contact us</a> if you have any questions. We're thrilled to host these models and see what you build!
+            </div>
+        </div>
+  <!--
+        <div class="dropdown-section">
+            <button class="dropdown-btn" onclick="toggleDropdown('responsibleUseContent', 'arrow2')">
+                Responsible Use
+                <span id="arrow2" class="arrow">&#9660;</span>
+            </button>
+            <div id="responsibleUseContent" class="dropdown-content">
+                The immense capabilities of Llama 3.1 and Dreamshaper v8 demand ethical usage. Review all documentation thoroughly before deploying, as comprehending limitations is vital. Despite the extensive testing of these models we strongly advise rigorous, safety-focused engineering. Progress requires diligence. Use these models to advance the public good, as their application now rests in your capable hands.
+            </div>
+        </div>
+        -->
+    </div>
+
+    <div class="container2" id="faq">
+        <fire>FAQ</fire>
+        <div class="faq-container">
+            <br>
+            <div class="faq-item">
+                <button class="accordion">How does Aelius AI work?</button>
+                <div class="panel">
+                    <p>
+                        Aelius finds, hosts, fine-tunes, and handles everything AI, making life easy for users and developers. We take advantage of the best avalible open source AI models, and provide them to our users for free. We believe everyone should be able to access powerful AI tools, so anyone can use our services as they see fit.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="accordion">Is Aelius AI safe to use?</button>
+                <div class="panel">
+                    <p>Yes, Aelius AI prioritizes user privacy and data security, ensuring all interactions are deleted when you refresh the page. NO data is collected, either from our API, or anything else from us. We take careful measures to unsure that your interactions with Aelius are kept private. Just be careful, others that use our API or other services may collect your data.</p>
+                </div>
+            </div>
+    
+            <div class="faq-item">
+                <button class="accordion">Can I integrate Aelius AI into my own software?</button>
+                <div class="panel">
+                    <p>Absolutely! Aelius AI provides APIs and integration tools that allow you to harness its capabilities within your own applications. <a href="https://aelius.live/integrate">Click here</a> for more details.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container2" id="contact">
+        <fire>Contact Us</fire>
+        <div class="faq-container">
+            <p>If you have any questions or would like to discuss further opportunities, please don't hesitate to reach out.</p>
+    
+            <div class="faq-item">
+                <button class="accordion">Lead Developer: William Struloeff</button>
+                <div class="panel">
+                    <p><strong>Discord:</strong> <a href="https://www.discordapp.com/users/728045705570156573" target="_blank">i5r</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:willstruloeff@gmail.com">willstruloeff@gmail.com</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/i5tar" target="_blank">i5tar</a></p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="accordion">Support Contact</button>
+                <div class="panel">
+                    <p><strong>Email:</strong> <a href="mailto:support@aelius.live">support@aelius.live</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+    
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight){
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    } 
+                });
+            }
+        </script>
+
+        <style>
+.aelius-footer {
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    padding: 60px 0 30px;
+}
+
+.aelius-footer-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.aelius-footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 40px;
+}
+
+.aelius-footer-section h2 {
+    color: #3498db;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+.aelius-footer-section h3 {
+    color: #3498db;
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.aelius-footer-section p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+.aelius-footer-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.aelius-footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.aelius-footer-section ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.aelius-footer-section ul li a:hover {
+    color: #3498db;
+}
+
+.aelius-footer-copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .aelius-footer-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+        </style>
+    
+    <div class="aelius-footer">
+        <div class="aelius-footer-container">
+            <div class="aelius-footer-content">
+                <div class="aelius-footer-section">
+                    <h2>Aelius AI</h2>
+                    <p>Empowering the future with privacy-focused, cutting-edge artificial intelligence solutions. We're committed to innovation, ethics, and data security.</p>
+                </div>
+                <div class="aelius-footer-section">
+                    <h3>About Us</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#about">Our Mission</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="aelius-footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="/chat">Text AI</a></li>
+                        <li><a href="/image">Image AI</a></li>
+                        <li><a href="/login">Login</a></li>
+                        <li><a href="/integrate">API</a></li>
+                    </ul>
+                </div>
+                <div class="aelius-footer-section">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/usage">Usage Policy</a></li>
+                        <li><a href="/privacy">Privacy Policy</a></li>
+                        <li><a href="/ethics">Ethical AI Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="aelius-footer-copyright">
+                <p>&copy; 2024 Aelius AI. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', function() {
+                this.parentElement.classList.toggle('active');
+            });
+        });
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatAnimation = document.getElementById('chatAnimation');
+            let chatIndex = 0;
+            const chatMessages = chatAnimation.children;
+
+            function displayNextMessage() {
+                if (chatIndex < chatMessages.length) {
+                    chatMessages[chatIndex].classList.add('active');
+                    chatIndex++;
+                    setTimeout(displayNextMessage, 2000);
+                }
+            }
+
+            setTimeout(function() {
+                chatAnimation.style.display = 'flex';
+                displayNextMessage();
+            }, 20);
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let faqQuestions = document.querySelectorAll(".faq-question");
+
+            faqQuestions.forEach(question => {
+                question.addEventListener("click", function() {
+                    let answer = this.nextElementSibling;
+                    
+                    if(answer.classList.contains("active")) {
+                        answer.classList.remove("active");
+                    } else {
+                        let allAnswers = document.querySelectorAll(".faq-answer");
+                        allAnswers.forEach(item => item.classList.remove("active"));
+                        answer.classList.add("active");
+                    }
+                });
+            });
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const navLinks = document.querySelectorAll('.nav-list a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    const target = document.querySelector(this.getAttribute('href'));
+                    const targetPosition = target.offsetTop;
+
+                    window.scrollTo({
+                        top: targetPosition - 60,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+
+
+    </script>
+</body>
+</html>
